@@ -1,0 +1,101 @@
+{
+    "type": "object",
+    "properties": {
+        "Marker": {
+            "required": false,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "This input determines which instances to list.",
+            "properties": {
+                "ClusterId": {
+                    "description": "The identifier of the cluster for which to list the instances.",
+                    "type": "string"
+                },
+                "InstanceFleetId": {
+                    "description": "The unique identifier of the instance fleet.",
+                    "type": "string"
+                },
+                "InstanceFleetType": {
+                    "description": "The node type of the instance fleet. For example MASTER, CORE, or TASK.",
+                    "enum": [
+                        "MASTER",
+                        "CORE",
+                        "TASK"
+                    ],
+                    "type": "string"
+                },
+                "InstanceGroupId": {
+                    "description": "The identifier of the instance group for which to list the instances.",
+                    "type": "string"
+                },
+                "InstanceGroupTypes": {
+                    "description": "The type of instance group for which to list the instances.",
+                    "items": {
+                        "enum": [
+                            "MASTER",
+                            "CORE",
+                            "TASK"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "InstanceStates": {
+                    "description": "A list of instance states that will filter the instances returned with this request.",
+                    "items": {
+                        "enum": [
+                            "AWAITING_FULFILLMENT",
+                            "PROVISIONING",
+                            "BOOTSTRAPPING",
+                            "RUNNING",
+                            "TERMINATED"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "Marker": {
+                    "description": "The pagination token that indicates the next set of results to retrieve.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ClusterId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

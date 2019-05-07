@@ -1,0 +1,146 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": " The input argument to the <a>AddJobFlowSteps</a> operation. ",
+            "properties": {
+                "JobFlowId": {
+                    "description": "A string that uniquely identifies the job flow. This identifier is returned by <a>RunJobFlow</a> and can also be obtained from <a>ListClusters</a>. ",
+                    "maxLength": 256,
+                    "minLength": 0,
+                    "type": "string",
+                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                },
+                "Steps": {
+                    "description": " A list of <a>StepConfig</a> to be executed by the job flow. ",
+                    "items": {
+                        "description": "Specification of a cluster (job flow) step.",
+                        "properties": {
+                            "ActionOnFailure": {
+                                "description": "The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.",
+                                "enum": [
+                                    "TERMINATE_JOB_FLOW",
+                                    "TERMINATE_CLUSTER",
+                                    "CANCEL_AND_WAIT",
+                                    "CONTINUE"
+                                ],
+                                "type": "string"
+                            },
+                            "HadoopJarStep": {
+                                "description": "The JAR file used for the step.",
+                                "properties": {
+                                    "Args": {
+                                        "description": "A list of command line arguments passed to the JAR file's main function when executed.",
+                                        "items": {
+                                            "maxLength": 10280,
+                                            "minLength": 0,
+                                            "type": "string",
+                                            "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "Jar": {
+                                        "description": "A path to a JAR file run during the step.",
+                                        "maxLength": 10280,
+                                        "minLength": 0,
+                                        "type": "string",
+                                        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                                    },
+                                    "MainClass": {
+                                        "description": "The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.",
+                                        "maxLength": 10280,
+                                        "minLength": 0,
+                                        "type": "string",
+                                        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                                    },
+                                    "Properties": {
+                                        "description": "A list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.",
+                                        "items": {
+                                            "description": "A key value pair.",
+                                            "properties": {
+                                                "Key": {
+                                                    "description": "The unique identifier of a key value pair.",
+                                                    "maxLength": 10280,
+                                                    "minLength": 0,
+                                                    "type": "string",
+                                                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                                                },
+                                                "Value": {
+                                                    "description": "The value part of the identified key.",
+                                                    "maxLength": 10280,
+                                                    "minLength": 0,
+                                                    "type": "string",
+                                                    "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "required": [
+                                    "Jar"
+                                ],
+                                "type": "object"
+                            },
+                            "Name": {
+                                "description": "The name of the step.",
+                                "maxLength": 256,
+                                "minLength": 0,
+                                "type": "string",
+                                "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                            }
+                        },
+                        "required": [
+                            "Name",
+                            "HadoopJarStep"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "JobFlowId",
+                "Steps"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,77 @@
+{
+    "type": "object",
+    "properties": {
+        "Marker": {
+            "required": false,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "This input determines how the ListClusters action filters the list of clusters that it returns.",
+            "properties": {
+                "ClusterStates": {
+                    "description": "The cluster state filters to apply when listing clusters.",
+                    "items": {
+                        "enum": [
+                            "STARTING",
+                            "BOOTSTRAPPING",
+                            "RUNNING",
+                            "WAITING",
+                            "TERMINATING",
+                            "TERMINATED",
+                            "TERMINATED_WITH_ERRORS"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "CreatedAfter": {
+                    "description": "The creation date and time beginning value filter for listing clusters.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "CreatedBefore": {
+                    "description": "The creation date and time end value filter for listing clusters.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "Marker": {
+                    "description": "The pagination token that indicates the next set of results to retrieve.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

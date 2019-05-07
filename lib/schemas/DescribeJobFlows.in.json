@@ -1,0 +1,85 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": " The input for the <a>DescribeJobFlows</a> operation. ",
+            "properties": {
+                "CreatedAfter": {
+                    "description": "Return only job flows created after this date and time.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "CreatedBefore": {
+                    "description": "Return only job flows created before this date and time.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "JobFlowIds": {
+                    "description": "Return only job flows whose job flow ID is contained in this list.",
+                    "items": {
+                        "maxLength": 10280,
+                        "minLength": 0,
+                        "type": "string",
+                        "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+                    },
+                    "type": "array"
+                },
+                "JobFlowStates": {
+                    "description": "Return only job flows whose state is contained in this list.",
+                    "items": {
+                        "description": "The type of instance.",
+                        "enum": [
+                            "STARTING",
+                            "BOOTSTRAPPING",
+                            "RUNNING",
+                            "WAITING",
+                            "SHUTTING_DOWN",
+                            "TERMINATED",
+                            "COMPLETED",
+                            "FAILED"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
