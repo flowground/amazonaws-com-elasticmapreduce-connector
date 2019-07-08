@@ -20,7 +20,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "hmac": {
+            "auth_hmac": {
                 "label": "Authorization (hmac)",
                 "viewClass": "TextFieldView",
                 "note": "Amazon Signature authorization v4"
@@ -38,8 +38,8 @@
     "actions": {
         "AddInstanceFleet": {
             "main": "./lib/actions/AddInstanceFleet.js",
-            "title": "<p>Adds an instance fleet to a running cluster.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x.</p> </note>",
-            "description": "<p>Adds an instance fleet to a running cluster.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x.</p> </note>",
+            "title": "AddInstanceFleet",
+            "description": "Adds an instance fleet to a running cluster.\n\nThe instance fleet configuration is available only in Amazon EMR versions 4.8.0\nand later, excluding 5.0.x.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -55,7 +55,7 @@
         },
         "AddInstanceGroups": {
             "main": "./lib/actions/AddInstanceGroups.js",
-            "title": "Adds one or more instance groups to a running cluster.",
+            "title": "AddInstanceGroups",
             "description": "Adds one or more instance groups to a running cluster.",
             "fields": {
                 "verbose": {
@@ -72,8 +72,8 @@
         },
         "AddJobFlowSteps": {
             "main": "./lib/actions/AddJobFlowSteps.js",
-            "title": "<p>AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps are allowed in each job flow.</p> <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using SSH to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, see <a href=\"http://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html\">Add More than 256 Steps to a Cluster</a> in the <i>Amazon EMR Management Guide</i>.</p> <p>A step specifies the location of a JAR file stored either on the master node of the cluster or in Amazon S3. Each step is performed by the main function of the main class of the JAR file. The main class can be specified either in the manifest of the JAR or by using the MainFunction parameter of the step.</p> <p>Amazon EMR executes each step in the order listed. For a step to be considered complete, the main function must exit with a zero exit code and all Hadoop jobs started while the step was running must have completed and run successfully.</p> <p>You can only add steps to a cluster that is in one of the following states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.</p>",
-            "description": "<p>AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps are allowed in each job flow.</p> <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using SSH to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, see <a href=\"http://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html\">Add More than 256 Steps to a Cluster</a> in the <i>Amazon EMR Management Guide</i>.</p> <p>A step specifies the location of a JAR file stored either on the master node of the cluster or in Amazon S3. Each step is performed by the main function of the main class of the JAR file. The main class can be specified either in the manifest of the JAR or by using the MainFunction parameter of the step.</p> <p>Amazon EMR executes each step in the order listed. For a step to be considered complete, the main function must exit with a zero exit code and all Hadoop jobs started while the step was running must have completed and run successfully.</p> <p>You can only add steps to a cluster that is in one of the following states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.</p>",
+            "title": "AddJobFlowSteps",
+            "description": "AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps are\nallowed in each job flow.\n\nIf your cluster is long-running (such as a Hive data warehouse) or complex, you\nmay require more than 256 steps to process your data. You can bypass the\n256-step limitation in various ways, including using SSH to connect to the\nmaster node and submitting queries directly to the software running on the\nmaster node, such as Hive and Hadoop. For more information on how to do this,\nsee Add More than 256 Steps to a Cluster\n[http://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html] \nin the Amazon EMR Management Guide.\n\nA step specifies the location of a JAR file stored either on the master node of\nthe cluster or in Amazon S3. Each step is performed by the main function of the\nmain class of the JAR file. The main class can be specified either in the\nmanifest of the JAR or by using the MainFunction parameter of the step.\n\nAmazon EMR executes each step in the order listed. For a step to be considered\ncomplete, the main function must exit with a zero exit code and all Hadoop jobs\nstarted while the step was running must have completed and run successfully.\n\nYou can only add steps to a cluster that is in one of the following states:\nSTARTING, BOOTSTRAPPING, RUNNING, or WAITING.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -89,7 +89,7 @@
         },
         "AddTags": {
             "main": "./lib/actions/AddTags.js",
-            "title": "Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <a href=\"http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html\">Tag Clusters</a>. ",
+            "title": "AddTags",
             "description": "Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <a href=\"http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html\">Tag Clusters</a>. ",
             "fields": {
                 "verbose": {
@@ -106,7 +106,7 @@
         },
         "CancelSteps": {
             "main": "./lib/actions/CancelSteps.js",
-            "title": "Cancels a pending step or steps in a running cluster. Available only in Amazon EMR versions 4.8.0 and later, excluding version 5.0.0. A maximum of 256 steps are allowed in each CancelSteps request. CancelSteps is idempotent but asynchronous; it does not guarantee a step will be canceled, even if the request is successfully submitted. You can only cancel steps that are in a <code>PENDING</code> state.",
+            "title": "CancelSteps",
             "description": "Cancels a pending step or steps in a running cluster. Available only in Amazon EMR versions 4.8.0 and later, excluding version 5.0.0. A maximum of 256 steps are allowed in each CancelSteps request. CancelSteps is idempotent but asynchronous; it does not guarantee a step will be canceled, even if the request is successfully submitted. You can only cancel steps that are in a <code>PENDING</code> state.",
             "fields": {
                 "verbose": {
@@ -123,7 +123,7 @@
         },
         "CreateSecurityConfiguration": {
             "main": "./lib/actions/CreateSecurityConfiguration.js",
-            "title": "Creates a security configuration, which is stored in the service and can be specified when a cluster is created.",
+            "title": "CreateSecurityConfiguration",
             "description": "Creates a security configuration, which is stored in the service and can be specified when a cluster is created.",
             "fields": {
                 "verbose": {
@@ -140,7 +140,7 @@
         },
         "DeleteSecurityConfiguration": {
             "main": "./lib/actions/DeleteSecurityConfiguration.js",
-            "title": "Deletes a security configuration.",
+            "title": "DeleteSecurityConfiguration",
             "description": "Deletes a security configuration.",
             "fields": {
                 "verbose": {
@@ -157,7 +157,7 @@
         },
         "DescribeCluster": {
             "main": "./lib/actions/DescribeCluster.js",
-            "title": "Provides cluster-level details including status, hardware and software configuration, VPC settings, and so on. ",
+            "title": "DescribeCluster",
             "description": "Provides cluster-level details including status, hardware and software configuration, VPC settings, and so on. ",
             "fields": {
                 "verbose": {
@@ -174,8 +174,8 @@
         },
         "DescribeJobFlows": {
             "main": "./lib/actions/DescribeJobFlows.js",
-            "title": "<p>This API is deprecated and will eventually be removed. We recommend you use <a>ListClusters</a>, <a>DescribeCluster</a>, <a>ListSteps</a>, <a>ListInstanceGroups</a> and <a>ListBootstrapActions</a> instead.</p> <p>DescribeJobFlows returns a list of job flows that match all of the supplied parameters. The parameters can include a list of job flow IDs, job flow states, and restrictions on job flow creation date and time.</p> <p>Regardless of supplied parameters, only job flows created within the last two months are returned.</p> <p>If no parameters are supplied, then job flows matching either of the following criteria are returned:</p> <ul> <li> <p>Job flows created and completed in the last two weeks</p> </li> <li> <p> Job flows created within the last two months that are in one of the following states: <code>RUNNING</code>, <code>WAITING</code>, <code>SHUTTING_DOWN</code>, <code>STARTING</code> </p> </li> </ul> <p>Amazon EMR can return a maximum of 512 job flow descriptions.</p>",
-            "description": "<p>This API is deprecated and will eventually be removed. We recommend you use <a>ListClusters</a>, <a>DescribeCluster</a>, <a>ListSteps</a>, <a>ListInstanceGroups</a> and <a>ListBootstrapActions</a> instead.</p> <p>DescribeJobFlows returns a list of job flows that match all of the supplied parameters. The parameters can include a list of job flow IDs, job flow states, and restrictions on job flow creation date and time.</p> <p>Regardless of supplied parameters, only job flows created within the last two months are returned.</p> <p>If no parameters are supplied, then job flows matching either of the following criteria are returned:</p> <ul> <li> <p>Job flows created and completed in the last two weeks</p> </li> <li> <p> Job flows created within the last two months that are in one of the following states: <code>RUNNING</code>, <code>WAITING</code>, <code>SHUTTING_DOWN</code>, <code>STARTING</code> </p> </li> </ul> <p>Amazon EMR can return a maximum of 512 job flow descriptions.</p>",
+            "title": "DescribeJobFlows",
+            "description": "This API is deprecated and will eventually be removed. We recommend you use \nListClusters, DescribeCluster, ListSteps, ListInstanceGroups and \nListBootstrapActions instead.\n\nDescribeJobFlows returns a list of job flows that match all of the supplied\nparameters. The parameters can include a list of job flow IDs, job flow states,\nand restrictions on job flow creation date and time.\n\nRegardless of supplied parameters, only job flows created within the last two\nmonths are returned.\n\nIf no parameters are supplied, then job flows matching either of the following\ncriteria are returned:\n\n *  Job flows created and completed in the last two weeks\n   \n   \n *   Job flows created within the last two months that are in one of the\n   following states: RUNNING, WAITING, SHUTTING_DOWN, STARTING \n   \n   \n\nAmazon EMR can return a maximum of 512 job flow descriptions.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -191,7 +191,7 @@
         },
         "DescribeSecurityConfiguration": {
             "main": "./lib/actions/DescribeSecurityConfiguration.js",
-            "title": "Provides the details of a security configuration by returning the configuration JSON.",
+            "title": "DescribeSecurityConfiguration",
             "description": "Provides the details of a security configuration by returning the configuration JSON.",
             "fields": {
                 "verbose": {
@@ -208,7 +208,7 @@
         },
         "DescribeStep": {
             "main": "./lib/actions/DescribeStep.js",
-            "title": "Provides more detail about the cluster step.",
+            "title": "DescribeStep",
             "description": "Provides more detail about the cluster step.",
             "fields": {
                 "verbose": {
@@ -225,7 +225,7 @@
         },
         "ListBootstrapActions": {
             "main": "./lib/actions/ListBootstrapActions.js",
-            "title": "Provides information about the bootstrap actions associated with a cluster.",
+            "title": "ListBootstrapActions",
             "description": "Provides information about the bootstrap actions associated with a cluster.",
             "fields": {
                 "verbose": {
@@ -242,7 +242,7 @@
         },
         "ListClusters": {
             "main": "./lib/actions/ListClusters.js",
-            "title": "Provides the status of all clusters visible to this AWS account. Allows you to filter the list of clusters based on certain criteria; for example, filtering by cluster creation date and time or by status. This call returns a maximum of 50 clusters per call, but returns a marker to track the paging of the cluster list across multiple ListClusters calls.",
+            "title": "ListClusters",
             "description": "Provides the status of all clusters visible to this AWS account. Allows you to filter the list of clusters based on certain criteria; for example, filtering by cluster creation date and time or by status. This call returns a maximum of 50 clusters per call, but returns a marker to track the paging of the cluster list across multiple ListClusters calls.",
             "fields": {
                 "verbose": {
@@ -259,8 +259,8 @@
         },
         "ListInstanceFleets": {
             "main": "./lib/actions/ListInstanceFleets.js",
-            "title": "<p>Lists all available details about the instance fleets in a cluster.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p> </note>",
-            "description": "<p>Lists all available details about the instance fleets in a cluster.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p> </note>",
+            "title": "ListInstanceFleets",
+            "description": "Lists all available details about the instance fleets in a cluster.\n\nThe instance fleet configuration is available only in Amazon EMR versions 4.8.0\nand later, excluding 5.0.x versions.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -276,7 +276,7 @@
         },
         "ListInstanceGroups": {
             "main": "./lib/actions/ListInstanceGroups.js",
-            "title": "Provides all available details about the instance groups in a cluster.",
+            "title": "ListInstanceGroups",
             "description": "Provides all available details about the instance groups in a cluster.",
             "fields": {
                 "verbose": {
@@ -293,7 +293,7 @@
         },
         "ListInstances": {
             "main": "./lib/actions/ListInstances.js",
-            "title": "Provides information for all active EC2 instances and EC2 instances terminated in the last 30 days, up to a maximum of 2,000. EC2 instances in any of the following states are considered active: AWAITING_FULFILLMENT, PROVISIONING, BOOTSTRAPPING, RUNNING.",
+            "title": "ListInstances",
             "description": "Provides information for all active EC2 instances and EC2 instances terminated in the last 30 days, up to a maximum of 2,000. EC2 instances in any of the following states are considered active: AWAITING_FULFILLMENT, PROVISIONING, BOOTSTRAPPING, RUNNING.",
             "fields": {
                 "verbose": {
@@ -310,7 +310,7 @@
         },
         "ListSecurityConfigurations": {
             "main": "./lib/actions/ListSecurityConfigurations.js",
-            "title": "Lists all the security configurations visible to this account, providing their creation dates and times, and their names. This call returns a maximum of 50 clusters per call, but returns a marker to track the paging of the cluster list across multiple ListSecurityConfigurations calls.",
+            "title": "ListSecurityConfigurations",
             "description": "Lists all the security configurations visible to this account, providing their creation dates and times, and their names. This call returns a maximum of 50 clusters per call, but returns a marker to track the paging of the cluster list across multiple ListSecurityConfigurations calls.",
             "fields": {
                 "verbose": {
@@ -327,7 +327,7 @@
         },
         "ListSteps": {
             "main": "./lib/actions/ListSteps.js",
-            "title": "Provides a list of steps for the cluster in reverse order unless you specify stepIds with the request.",
+            "title": "ListSteps",
             "description": "Provides a list of steps for the cluster in reverse order unless you specify stepIds with the request.",
             "fields": {
                 "verbose": {
@@ -344,8 +344,8 @@
         },
         "ModifyInstanceFleet": {
             "main": "./lib/actions/ModifyInstanceFleet.js",
-            "title": "<p>Modifies the target On-Demand and target Spot capacities for the instance fleet with the specified InstanceFleetID within the cluster specified using ClusterID. The call either succeeds or fails atomically.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p> </note>",
-            "description": "<p>Modifies the target On-Demand and target Spot capacities for the instance fleet with the specified InstanceFleetID within the cluster specified using ClusterID. The call either succeeds or fails atomically.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p> </note>",
+            "title": "ModifyInstanceFleet",
+            "description": "Modifies the target On-Demand and target Spot capacities for the instance fleet\nwith the specified InstanceFleetID within the cluster specified using ClusterID.\nThe call either succeeds or fails atomically.\n\nThe instance fleet configuration is available only in Amazon EMR versions 4.8.0\nand later, excluding 5.0.x versions.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -361,7 +361,7 @@
         },
         "ModifyInstanceGroups": {
             "main": "./lib/actions/ModifyInstanceGroups.js",
-            "title": "ModifyInstanceGroups modifies the number of nodes and configuration settings of an instance group. The input parameters include the new target instance count for the group and the instance group ID. The call will either succeed or fail atomically.",
+            "title": "ModifyInstanceGroups",
             "description": "ModifyInstanceGroups modifies the number of nodes and configuration settings of an instance group. The input parameters include the new target instance count for the group and the instance group ID. The call will either succeed or fail atomically.",
             "fields": {
                 "verbose": {
@@ -378,7 +378,7 @@
         },
         "PutAutoScalingPolicy": {
             "main": "./lib/actions/PutAutoScalingPolicy.js",
-            "title": "Creates or updates an automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric.",
+            "title": "PutAutoScalingPolicy",
             "description": "Creates or updates an automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric.",
             "fields": {
                 "verbose": {
@@ -395,7 +395,7 @@
         },
         "RemoveAutoScalingPolicy": {
             "main": "./lib/actions/RemoveAutoScalingPolicy.js",
-            "title": "Removes an automatic scaling policy from a specified instance group within an EMR cluster.",
+            "title": "RemoveAutoScalingPolicy",
             "description": "Removes an automatic scaling policy from a specified instance group within an EMR cluster.",
             "fields": {
                 "verbose": {
@@ -412,8 +412,8 @@
         },
         "RemoveTags": {
             "main": "./lib/actions/RemoveTags.js",
-            "title": "<p>Removes tags from an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <a href=\"http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html\">Tag Clusters</a>. </p> <p>The following example removes the stack tag with value Prod from a cluster:</p>",
-            "description": "<p>Removes tags from an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <a href=\"http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html\">Tag Clusters</a>. </p> <p>The following example removes the stack tag with value Prod from a cluster:</p>",
+            "title": "RemoveTags",
+            "description": "Removes tags from an Amazon EMR resource. Tags make it easier to associate\nclusters in various ways, such as grouping clusters to track your Amazon EMR\nresource allocation costs. For more information, see Tag Clusters\n[http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html]. \n\nThe following example removes the stack tag with value Prod from a cluster:",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -429,8 +429,8 @@
         },
         "RunJobFlow": {
             "main": "./lib/actions/RunJobFlow.js",
-            "title": "<p>RunJobFlow creates and starts running a new cluster (job flow). The cluster runs the steps specified. After the steps complete, the cluster stops and the HDFS partition is lost. To prevent loss of data, configure the last step of the job flow to store results in Amazon S3. If the <a>JobFlowInstancesConfig</a> <code>KeepJobFlowAliveWhenNoSteps</code> parameter is set to <code>TRUE</code>, the cluster transitions to the WAITING state rather than shutting down after the steps have completed. </p> <p>For additional protection, you can set the <a>JobFlowInstancesConfig</a> <code>TerminationProtected</code> parameter to <code>TRUE</code> to lock the cluster and prevent it from being terminated by API call, user intervention, or in the event of a job flow error.</p> <p>A maximum of 256 steps are allowed in each job flow.</p> <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, see <a href=\"http://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html\">Add More than 256 Steps to a Cluster</a> in the <i>Amazon EMR Management Guide</i>.</p> <p>For long running clusters, we recommend that you periodically store your results.</p> <note> <p>The instance fleets configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions. The RunJobFlow request can contain InstanceFleets parameters or InstanceGroups parameters, but not both.</p> </note>",
-            "description": "<p>RunJobFlow creates and starts running a new cluster (job flow). The cluster runs the steps specified. After the steps complete, the cluster stops and the HDFS partition is lost. To prevent loss of data, configure the last step of the job flow to store results in Amazon S3. If the <a>JobFlowInstancesConfig</a> <code>KeepJobFlowAliveWhenNoSteps</code> parameter is set to <code>TRUE</code>, the cluster transitions to the WAITING state rather than shutting down after the steps have completed. </p> <p>For additional protection, you can set the <a>JobFlowInstancesConfig</a> <code>TerminationProtected</code> parameter to <code>TRUE</code> to lock the cluster and prevent it from being terminated by API call, user intervention, or in the event of a job flow error.</p> <p>A maximum of 256 steps are allowed in each job flow.</p> <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, see <a href=\"http://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html\">Add More than 256 Steps to a Cluster</a> in the <i>Amazon EMR Management Guide</i>.</p> <p>For long running clusters, we recommend that you periodically store your results.</p> <note> <p>The instance fleets configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions. The RunJobFlow request can contain InstanceFleets parameters or InstanceGroups parameters, but not both.</p> </note>",
+            "title": "RunJobFlow",
+            "description": "RunJobFlow creates and starts running a new cluster (job flow). The cluster runs\nthe steps specified. After the steps complete, the cluster stops and the HDFS\npartition is lost. To prevent loss of data, configure the last step of the job\nflow to store results in Amazon S3. If the JobFlowInstancesConfig \nKeepJobFlowAliveWhenNoSteps parameter is set to TRUE, the cluster transitions to\nthe WAITING state rather than shutting down after the steps have completed. \n\nFor additional protection, you can set the JobFlowInstancesConfig \nTerminationProtected parameter to TRUE to lock the cluster and prevent it from\nbeing terminated by API call, user intervention, or in the event of a job flow\nerror.\n\nA maximum of 256 steps are allowed in each job flow.\n\nIf your cluster is long-running (such as a Hive data warehouse) or complex, you\nmay require more than 256 steps to process your data. You can bypass the\n256-step limitation in various ways, including using the SSH shell to connect to\nthe master node and submitting queries directly to the software running on the\nmaster node, such as Hive and Hadoop. For more information on how to do this,\nsee Add More than 256 Steps to a Cluster\n[http://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html] \nin the Amazon EMR Management Guide.\n\nFor long running clusters, we recommend that you periodically store your\nresults.\n\nThe instance fleets configuration is available only in Amazon EMR versions 4.8.0\nand later, excluding 5.0.x versions. The RunJobFlow request can contain\nInstanceFleets parameters or InstanceGroups parameters, but not both.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -446,8 +446,8 @@
         },
         "SetTerminationProtection": {
             "main": "./lib/actions/SetTerminationProtection.js",
-            "title": "<p>SetTerminationProtection locks a cluster (job flow) so the EC2 instances in the cluster cannot be terminated by user intervention, an API call, or in the event of a job-flow error. The cluster still terminates upon successful completion of the job flow. Calling <code>SetTerminationProtection</code> on a cluster is similar to calling the Amazon EC2 <code>DisableAPITermination</code> API on all EC2 instances in a cluster.</p> <p> <code>SetTerminationProtection</code> is used to prevent accidental termination of a cluster and to ensure that in the event of an error, the instances persist so that you can recover any data stored in their ephemeral instance storage.</p> <p> To terminate a cluster that has been locked by setting <code>SetTerminationProtection</code> to <code>true</code>, you must first unlock the job flow by a subsequent call to <code>SetTerminationProtection</code> in which you set the value to <code>false</code>. </p> <p> For more information, see<a href=\"http://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html\">Managing Cluster Termination</a> in the <i>Amazon EMR Management Guide</i>. </p>",
-            "description": "<p>SetTerminationProtection locks a cluster (job flow) so the EC2 instances in the cluster cannot be terminated by user intervention, an API call, or in the event of a job-flow error. The cluster still terminates upon successful completion of the job flow. Calling <code>SetTerminationProtection</code> on a cluster is similar to calling the Amazon EC2 <code>DisableAPITermination</code> API on all EC2 instances in a cluster.</p> <p> <code>SetTerminationProtection</code> is used to prevent accidental termination of a cluster and to ensure that in the event of an error, the instances persist so that you can recover any data stored in their ephemeral instance storage.</p> <p> To terminate a cluster that has been locked by setting <code>SetTerminationProtection</code> to <code>true</code>, you must first unlock the job flow by a subsequent call to <code>SetTerminationProtection</code> in which you set the value to <code>false</code>. </p> <p> For more information, see<a href=\"http://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html\">Managing Cluster Termination</a> in the <i>Amazon EMR Management Guide</i>. </p>",
+            "title": "SetTerminationProtection",
+            "description": "SetTerminationProtection locks a cluster (job flow) so the EC2 instances in the\ncluster cannot be terminated by user intervention, an API call, or in the event\nof a job-flow error. The cluster still terminates upon successful completion of\nthe job flow. Calling SetTerminationProtection on a cluster is similar to\ncalling the Amazon EC2 DisableAPITermination API on all EC2 instances in a\ncluster.\n\n SetTerminationProtection is used to prevent accidental termination of a cluster\nand to ensure that in the event of an error, the instances persist so that you\ncan recover any data stored in their ephemeral instance storage.\n\n To terminate a cluster that has been locked by setting SetTerminationProtection \nto true, you must first unlock the job flow by a subsequent call to \nSetTerminationProtection in which you set the value to false. \n\n For more information, seeManaging Cluster Termination\n[http://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html] \nin the Amazon EMR Management Guide.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -463,7 +463,7 @@
         },
         "SetVisibleToAllUsers": {
             "main": "./lib/actions/SetVisibleToAllUsers.js",
-            "title": "Sets whether all AWS Identity and Access Management (IAM) users under your account can access the specified clusters (job flows). This action works on running clusters. You can also set the visibility of a cluster when you launch it using the <code>VisibleToAllUsers</code> parameter of <a>RunJobFlow</a>. The SetVisibleToAllUsers action can be called only by an IAM user who created the cluster or the AWS account that owns the cluster.",
+            "title": "SetVisibleToAllUsers",
             "description": "Sets whether all AWS Identity and Access Management (IAM) users under your account can access the specified clusters (job flows). This action works on running clusters. You can also set the visibility of a cluster when you launch it using the <code>VisibleToAllUsers</code> parameter of <a>RunJobFlow</a>. The SetVisibleToAllUsers action can be called only by an IAM user who created the cluster or the AWS account that owns the cluster.",
             "fields": {
                 "verbose": {
@@ -480,8 +480,8 @@
         },
         "TerminateJobFlows": {
             "main": "./lib/actions/TerminateJobFlows.js",
-            "title": "<p>TerminateJobFlows shuts a list of clusters (job flows) down. When a job flow is shut down, any step not yet completed is canceled and the EC2 instances on which the cluster is running are stopped. Any log files not already saved are uploaded to Amazon S3 if a LogUri was specified when the cluster was created.</p> <p>The maximum number of clusters allowed is 10. The call to <code>TerminateJobFlows</code> is asynchronous. Depending on the configuration of the cluster, it may take up to 1-5 minutes for the cluster to completely terminate and release allocated resources, such as Amazon EC2 instances.</p>",
-            "description": "<p>TerminateJobFlows shuts a list of clusters (job flows) down. When a job flow is shut down, any step not yet completed is canceled and the EC2 instances on which the cluster is running are stopped. Any log files not already saved are uploaded to Amazon S3 if a LogUri was specified when the cluster was created.</p> <p>The maximum number of clusters allowed is 10. The call to <code>TerminateJobFlows</code> is asynchronous. Depending on the configuration of the cluster, it may take up to 1-5 minutes for the cluster to completely terminate and release allocated resources, such as Amazon EC2 instances.</p>",
+            "title": "TerminateJobFlows",
+            "description": "TerminateJobFlows shuts a list of clusters (job flows) down. When a job flow is\nshut down, any step not yet completed is canceled and the EC2 instances on which\nthe cluster is running are stopped. Any log files not already saved are uploaded\nto Amazon S3 if a LogUri was specified when the cluster was created.\n\nThe maximum number of clusters allowed is 10. The call to TerminateJobFlows is\nasynchronous. Depending on the configuration of the cluster, it may take up to\n1-5 minutes for the cluster to completely terminate and release allocated\nresources, such as Amazon EC2 instances.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
